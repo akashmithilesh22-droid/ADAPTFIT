@@ -240,8 +240,12 @@ export function calculateNutritionTargets(
   targetCalories = Math.max(1200, Math.round(targetCalories))
 
   // 4. Macro Calculation
-  // Protein: 2.0g per kg bodyweight (standard for active individuals)
-  const proteinGrams = Math.round(weightKg * 2.0)
+  // Protein: 1.5g per kg bodyweight for bulk, 2.0g for others (as requested)
+  let proteinMultiplier = 2.0
+  if (primaryGoal === 'muscle-gain' || primaryGoal === 'bulk') {
+    proteinMultiplier = 1.5
+  }
+  const proteinGrams = Math.round(weightKg * proteinMultiplier)
   const proteinCalories = proteinGrams * 4
 
   // Fats: 25% of total calories (healthy range)

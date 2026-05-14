@@ -258,8 +258,8 @@ Calculate accurate macro targets based on these strict requirements:
 - Carbs: ${targets.carbs}g
 - Fats: ${targets.fats}g
 
-The sum of (Protein*4 + Carbs*4 + Fats*9) MUST equal the Calorie target.
-Generate meals that hit those targets exactly.
+- For Bulk/Muscle Gain: Ensure protein is approximately 1.5g per kg of bodyweight (as calculated in the targets).
+- The sum of (Protein*4 + Carbs*4 + Fats*9) MUST equal the Calorie target. Generate meals that hit those targets exactly.
 
 Return ONLY valid JSON matching this exact schema (no markdown, no code blocks):
 {

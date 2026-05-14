@@ -122,19 +122,26 @@ export function BodyMetricsStep({ data, updateData }: BodyMetricsStepProps) {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <Label className="text-base">Weight</Label>
-            <span className="font-[family-name:var(--font-jetbrains-mono)] text-lg text-primary">
-              {data.weightKg} kg
+            <div className="flex items-center gap-2">
+              <input
+                type="number"
+                value={data.weightKg}
+                onChange={(e) => updateData({ weightKg: parseFloat(e.target.value) || 0 })}
+                step="0.1"
+                className="w-20 rounded-lg border border-border bg-muted/30 p-1 text-right font-[family-name:var(--font-jetbrains-mono)] text-lg text-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+              <span className="font-[family-name:var(--font-jetbrains-mono)] text-lg text-primary">kg</span>
               <span className="text-foreground-muted text-sm ml-2">
                 ({Math.round(data.weightKg * 2.205)} lbs)
               </span>
-            </span>
+            </div>
           </div>
           <Slider
             value={[data.weightKg]}
             onValueChange={([value]) => updateData({ weightKg: value })}
             min={40}
             max={180}
-            step={0.5}
+            step={0.1}
             className="py-2"
           />
           <div className="flex justify-between text-xs text-foreground-muted">
