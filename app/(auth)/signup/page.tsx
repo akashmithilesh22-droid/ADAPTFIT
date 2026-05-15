@@ -71,7 +71,7 @@ export default function SignupPage() {
       newErrors.name = 'Name is required'
     }
 
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com|icloud\.com|live\.com|msn\.com|protonmail\.com)$/i
+    const emailRegex = const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!formData.email) {
       newErrors.email = 'Email is required'
     } else if (!emailRegex.test(formData.email)) {
