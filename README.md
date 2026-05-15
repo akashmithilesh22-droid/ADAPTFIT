@@ -20,14 +20,16 @@ Seamless Persistence: Every glass of water and every rep is saved to Supabase, e
 
 
 **🛠️ Tech Stack**
-We chose a modern, scalable stack to ensure the project "actually works":
 
-Framework: Next.js 14 (App Router)
-Language: TypeScript (for type-safety and fewer "explosions")
-Database & Auth: Supabase (Real-time data persistence & Secure Auth)
-AI Engine: Google Gemini / Groq API
-Styling: Tailwind CSS + Lucide Icons
+We chose a modern, scalable stack to ensure the project "actually works":
+**Framework:** Next.js 14 (App Router)
+**Language:** TypeScript (for type-safety and fewer "explosions")
+**Database & Auth:** Supabase (Real-time data persistence & Secure Auth)
+**AI Engine:** Google Gemini / Groq API
+**Styling:** Tailwind CSS + Lucide Icons
+
 Deployment: Vercel
+
 🚀 LIVE LINK: https://adaptfit-3a47.vercel.app/
 
 
@@ -42,17 +44,22 @@ git clone https://github.com/akashmithilesh22-droid/ADAPTFIT.git
 cd adaptfit
 
 **2. Install Dependencies**
+
 bash
 npm install
 
 **4. Environment Setup**
+
 Create a  .env.local file in the root directory and add your keys:
 
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
 GROQ_API_KEY=your_groq_api_key
 
 **4. Run the Development Server**
+
 bash
 npm run dev
 
