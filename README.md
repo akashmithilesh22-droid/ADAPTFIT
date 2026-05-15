@@ -1,21 +1,25 @@
-🚀 AdaptFit: The AI-Powered Adaptive Fitness Engine
+**🚀 AdaptFit: The AI-Powered Adaptive Fitness Engine**
 
 AdaptFit is a next-generation personal fitness companion that uses Generative AI to bridge the gap between static workout plans and the
 dynamic reality of human life.
 
 
-💡 The Problem
+**💡 The Problem**
+
 Most fitness apps provide "cookie-cutter" plans. They don't account for your specific body metrics (Mifflin-St Jeor),
 your dietary allergies, or your daily energy levels. Users often feel overwhelmed by data but underserved by actual guidance.
 
-✅ Our Solution
-AdaptFit creates a dynamic feedback loop:
+**✅ Our Solution**
+
+**AdaptFit creates a dynamic feedback loop:**
 
 Scientific Onboarding: Precise BMR and TDEE calculations based on real body metrics.
 AI Workout Generation: Real-time workout plans powered by Gemini/Groq that adapt to your goals.
 Smart Nutrition: Macro-tracking and meal suggestions that respect your dietary restrictions.
 Seamless Persistence: Every glass of water and every rep is saved to Supabase, ensuring your journey is tracked.
-🛠️ Tech Stack
+
+
+**🛠️ Tech Stack**
 We chose a modern, scalable stack to ensure the project "actually works":
 
 Framework: Next.js 14 (App Router)
@@ -31,8 +35,10 @@ Deployment: Vercel
 Follow these steps to run AdaptFit locally in under 2 minutes:
 
 **1. Clone the Repository**
+
 bash
 git clone https://github.com/akashmithilesh22-droid/ADAPTFIT.git
+
 cd adaptfit
 
 **2. Install Dependencies**
