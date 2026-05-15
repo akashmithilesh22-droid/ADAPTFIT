@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Eye, EyeOff, Mail, Lock, Loader2 } from 'lucide-react'
 import { AuthPanel } from '@/components/auth/auth-panel'
@@ -14,13 +14,29 @@ import { supabase } from '@/lib/supabase'
 
 export default function LoginPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
-    email: '',
+    email: searchParams.get('email') ?? '',
     password: '',
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
+
+  useEffect(() => {
+    if (searchParams.get('signupExists') === '1') {
+      const prefillEmail = searchParams.get('email')
+      if (prefillEmail) {
+        setFormData((prev) => ({ ...prev, email: prefillEmail }))
+      }
+
+      const message = 'This email already exists. Please sign in instead.'
+      setErrors({ email: message })
+      toast.error('Existing account found', {
+        description: message,
+      })
+    }
+  }, [searchParams])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

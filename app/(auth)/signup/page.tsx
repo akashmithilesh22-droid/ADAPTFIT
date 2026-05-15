@@ -71,7 +71,7 @@ export default function SignupPage() {
       newErrors.name = 'Name is required'
     }
 
-    const emailRegex = const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!formData.email) {
       newErrors.email = 'Email is required'
     } else if (!emailRegex.test(formData.email)) {
@@ -114,10 +114,19 @@ export default function SignupPage() {
     setIsLoading(false)
 
     if (error) {
+      if (error.message.includes('already registered') || error.message.includes('already exists')) {
+        const loginUrl = `/login?signupExists=1&email=${encodeURIComponent(formData.email)}`
+
+        toast.error('Email already exists', {
+          description: 'This email is already registered. Please sign in instead.',
+        })
+
+        router.push(loginUrl)
+        return
+      }
+
       let errorMessage = error.message
-      if (error.message.includes('already registered')) {
-        errorMessage = 'An account with this email already exists.'
-      } else if (error.message.includes('weak_password')) {
+      if (error.message.includes('weak_password')) {
         errorMessage = 'Your password is too weak. Please include numbers and symbols.'
       }
 
@@ -127,19 +136,19 @@ export default function SignupPage() {
       return
     }
     if (data.user) {
-  await supabase.from('profiles').insert({
-    id: data.user.id,
-    full_name: formData.name,
-  })
-}
+      await supabase.from('profiles').insert({
+        id: data.user.id,
+        full_name: formData.name,
+      })
+    }
 
     toast.success('Account created!', {
-      description: "Welcome to AdaptFit AI. Let's set up your profile.",
+      description: 'Your account is ready. Please sign in to continue.',
     })
 
     console.log('User created:', data)
 
-    router.push('/onboarding')
+    router.push('/login')
   }
 
 
